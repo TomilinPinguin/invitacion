@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Matrimonio</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+        .view {
+            display: none;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: fadeInOut 1s ease-in-out; /* Animación de desvanecimiento más lenta */
+        }
+        .view.active {
+            display: flex;
+        }
+        #view1 {
+            background-image: url('boda.jpeg');
+        }
+        #view2 {
+            background-image: url('foto2.jpg');
+        }
+        #view3 {
+            background-image: url('lugar2.jpg');
+        }
+        .btn {
+            width: 70px;
+            height: 70px;
+            border: none;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            animation: blink 1.5s infinite;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 20px; /* Ajuste para espacio entre el título y el botón */
+        }
+
+        .link-btn1 {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia */
+            color: #000; /* Texto negro */
+            text-decoration: none;
+            border: 2px solid #000; /* Borde negro de 2px */
+            border-radius: 10px; /* Bordes redondeados */
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+            margin: 10px;
+        }
+
+        .link-btn1:hover {
+            background-color: rgba(255, 255, 255, 1); /* Fondo blanco completo al hacer hover */
+            color: #000; /* Texto negro */
+        }
+
+
+        .btn span {
+            font-size: 24px;
+            color: #000;
+        }
+
+        .hr-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .line {
+            flex: 1;
+            border: none;
+            border-top: 2px solid #000;
+            margin: 0 10px;
+        }
+        .argollas-img {
+            width: 50px; /* Ajusta el tamaño según tus necesidades */
+            height: auto;
+        }
+        .main-title {
+           margin-top:120px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.1em;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            /* border: 2px solid black; */
+            padding: 10px 20px;
+            /* background-color: rgba(255, 255, 255, 0.7); */
+            /* border-radius: 10px; */
+
+        }
+        .main-title2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            border: 2px solid black;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            width: 80%;
+        }
+
+        .details{
+
+       font-family: Georgia, serif;
+    font-size: 18px; /* Tamaño de la fuente del contenedor principal */
+    line-height: 1.5; /* Altura de línea del contenedor principal */
+        }
+
+
+      @keyframes blink {
+          0%, 100% {
+              background: rgba(255, 255, 255, 0.8);
+              transform: scale(1);
+          }
+          50% {
+              background: rgba(255, 255, 255, 1);
+              transform: scale(1.1);
+          }
+      }
+
+      @keyframes fadeInOut {
+          0% {
+              opacity: 0;
+          }
+          100% {
+              opacity: 1;
+          }
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio id="weddingAudio" src="creoenti.mp3"></audio>
+
+    <div id="view1" class="view active">
+        <div class="main-title">
+            ¡Nos Casamos!
+            <div class="hr-container">
+                <hr class="line">
+                <img src="argollas.png" alt="Argollas" class="argollas-img">
+                <hr class="line">
+            </div>
+            Juan & Michell
+            <br><br><br><br>
+            <button class="btn" onclick="nextView(1)"><span>→</span></button>
+        </div>
+    </div>
+
+    <div id="view2" class="view">
+        <div class="main-title2">
+            <h2>Estamos encantados de invitarte</h2>
+            <p class="details">Para nosotros es fundamental compartir la alegría de nuestro matrimonio con ustedes,</p>
+            <p class="details">Por eso nos gustaría que nos acompañen en este día tan especial &#x1F49C;</p>
+            <button class="btn" onclick="nextView(2)"><span>→</span></button>
+        </div>
+    </div>
+
+    <div id="view3" class="view">
+        <div class="main-title2">
+            <h1>¡Nos vemos el gran día!</h1>
+
+            <p class="details">Sabado 14 de julio 8Pm</p>
+              <p class="details">CASA HOTEL BREMEN</p>
+
+            <a href="https://maps.google.com/?q=ubicacion_de_boda" class="link-btn1">Ubicación</a>
+            <a href="https://tu-sitio.com/confirmar?invitado=123" class="link-btn1">Confirmar</a>
+            <hr>
+            <br>
+            <button class="btn" onclick="nextView(3)"><span>✓</span></button>
+        </div>
+    </div>
+
+    <script>
+        function nextView(viewNumber) {
+            document.querySelector('.view.active').classList.remove('active');
+            if (viewNumber === 1) {
+                document.getElementById('weddingAudio').play();
+                document.getElementById('view2').classList.add('active');
+            } else if (viewNumber === 2) {
+                document.getElementById('view3').classList.add('active');
+            } else {
+                document.getElementById('view1').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
