@@ -196,20 +196,38 @@
         </div>
     </div>
 
-    <script>
-        function nextView(viewNumber) {
-            document.querySelector('.view.active').classList.remove('active');
-            if (viewNumber === 1) {
-                document.getElementById('weddingAudio').play();
-                document.getElementById('view2').classList.add('active');
-            } else if (viewNumber === 2) {
-                document.getElementById('view3').classList.add('active');
-            } else if (viewNumber === 3) {
-                document.getElementById('view4').classList.add('active');
-            } else {
-                document.getElementById('view1').classList.add('active');
-            }
+<script>
+    function nextView(viewNumber) {
+        document.querySelector('.view.active').classList.remove('active');
+
+        if (viewNumber === 1) {
+            document.getElementById('weddingAudio').play();
+            document.getElementById('view2').classList.add('active');
+
+            // Activar pantalla completa
+            openFullscreen();
+        } else if (viewNumber === 2) {
+            document.getElementById('view3').classList.add('active');
+        } else if (viewNumber === 3) {
+            document.getElementById('view4').classList.add('active');
+        } else {
+            document.getElementById('view1').classList.add('active');
         }
-    </script>
+    }
+
+    function openFullscreen() {
+        let elem = document.documentElement;
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { // Firefox
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { // IE/Edge
+            elem.msRequestFullscreen();
+        }
+    }
+</script>
+
 </body>
 </html>
